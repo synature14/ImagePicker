@@ -56,7 +56,8 @@
 		98DDDB8120452A3F0042056A /* InstaImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				98DDDB9920455A690042056A /* Model */,
+				98DDDB9420452BFB0042056A /* InstagramPickerViewController.swift */,
+				98DDDB9F204636A70042056A /* Storyboard */,
 				98DDDB9820455A650042056A /* Views */,
 				98DDDB8220452A3F0042056A /* AppDelegate.swift */,
 				98DDDB8920452A3F0042056A /* Assets.xcassets */,
@@ -68,19 +69,18 @@
 		98DDDB9820455A650042056A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				98DDDB8620452A3F0042056A /* Main.storyboard */,
-				98DDDB8B20452A3F0042056A /* LaunchScreen.storyboard */,
-				98DDDB9420452BFB0042056A /* InstagramPickerViewController.swift */,
 				98DDDB9B20455AF40042056A /* PickerCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		98DDDB9920455A690042056A /* Model */ = {
+		98DDDB9F204636A70042056A /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				98DDDB8B20452A3F0042056A /* LaunchScreen.storyboard */,
+				98DDDB8620452A3F0042056A /* Main.storyboard */,
 			);
-			path = Model;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

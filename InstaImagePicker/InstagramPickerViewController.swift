@@ -24,10 +24,6 @@ class InstagramPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        controller.delegate = self
-//        present(controller, animated: true, completion: nil)
-        
-//        bigImageView.image =
         fetchAllPhotos()
         setBigImage(imageAsset: firstAsset)
         
@@ -51,18 +47,6 @@ class InstagramPickerViewController: UIViewController {
         })
     }
     
-    
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        dismiss(animated: true, completion: nil)
-//    }
-//
-//    // when user selects an image
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-//
-//        bigImageView.image = image
-//        dismiss(animated: true, completion: nil)
-//    }
     
     // get coordinates of touched location
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
