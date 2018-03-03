@@ -7,23 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9892DA7C204690110032CEA7 /* AlbumsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892DA7B204690110032CEA7 /* AlbumsCollectionViewCell.swift */; };
+		9892DA7F204691A70032CEA7 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892DA7E204691A70032CEA7 /* Album.swift */; };
 		98DDDB8320452A3F0042056A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DDDB8220452A3F0042056A /* AppDelegate.swift */; };
 		98DDDB8820452A3F0042056A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98DDDB8620452A3F0042056A /* Main.storyboard */; };
 		98DDDB8A20452A3F0042056A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98DDDB8920452A3F0042056A /* Assets.xcassets */; };
 		98DDDB8D20452A3F0042056A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98DDDB8B20452A3F0042056A /* LaunchScreen.storyboard */; };
 		98DDDB9520452BFB0042056A /* InstagramPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DDDB9420452BFB0042056A /* InstagramPickerViewController.swift */; };
 		98DDDB9C20455AF40042056A /* PickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DDDB9B20455AF40042056A /* PickerCollectionViewCell.swift */; };
+		98DDDBA12046717F0042056A /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DDDBA02046717F0042056A /* AlbumsViewController.swift */; };
+		98DDDBA320467F620042056A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98DDDBA220467F620042056A /* Info.plist */; };
+		98DDDBA620468ABE0042056A /* AlbumsFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DDDBA520468ABE0042056A /* AlbumsFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9892DA7B204690110032CEA7 /* AlbumsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCollectionViewCell.swift; sourceTree = "<group>"; };
+		9892DA7E204691A70032CEA7 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		98DDDB7F20452A3F0042056A /* InstaImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98DDDB8220452A3F0042056A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98DDDB8720452A3F0042056A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98DDDB8920452A3F0042056A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98DDDB8C20452A3F0042056A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		98DDDB8E20452A3F0042056A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98DDDB9420452BFB0042056A /* InstagramPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramPickerViewController.swift; sourceTree = "<group>"; };
 		98DDDB9B20455AF40042056A /* PickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCollectionViewCell.swift; sourceTree = "<group>"; };
+		98DDDBA02046717F0042056A /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
+		98DDDBA220467F620042056A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Controller/Info.plist; sourceTree = "<group>"; };
+		98DDDBA520468ABE0042056A /* AlbumsFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,10 +46,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9892DA7D2046919B0032CEA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9892DA7E204691A70032CEA7 /* Album.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		98DDDB7620452A3F0042056A = {
 			isa = PBXGroup;
 			children = (
-				98DDDB8120452A3F0042056A /* InstaImagePicker */,
+				9892DA7D2046919B0032CEA7 /* Model */,
+				98DDDBA220467F620042056A /* Info.plist */,
+				98DDDBA420468A440042056A /* Layout */,
+				98DDDB8120452A3F0042056A /* Controller */,
 				98DDDB8020452A3F0042056A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,23 +73,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		98DDDB8120452A3F0042056A /* InstaImagePicker */ = {
+		98DDDB8120452A3F0042056A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				98DDDB9420452BFB0042056A /* InstagramPickerViewController.swift */,
+				98DDDBA02046717F0042056A /* AlbumsViewController.swift */,
 				98DDDB9F204636A70042056A /* Storyboard */,
 				98DDDB9820455A650042056A /* Views */,
 				98DDDB8220452A3F0042056A /* AppDelegate.swift */,
 				98DDDB8920452A3F0042056A /* Assets.xcassets */,
-				98DDDB8E20452A3F0042056A /* Info.plist */,
 			);
-			path = InstaImagePicker;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		98DDDB9820455A650042056A /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				98DDDB9B20455AF40042056A /* PickerCollectionViewCell.swift */,
+				9892DA7B204690110032CEA7 /* AlbumsCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -81,6 +102,14 @@
 				98DDDB8620452A3F0042056A /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		98DDDBA420468A440042056A /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				98DDDBA520468ABE0042056A /* AlbumsFlowLayout.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98DDDBA320467F620042056A /* Info.plist in Resources */,
 				98DDDB8D20452A3F0042056A /* LaunchScreen.storyboard in Resources */,
 				98DDDB8A20452A3F0042056A /* Assets.xcassets in Resources */,
 				98DDDB8820452A3F0042056A /* Main.storyboard in Resources */,
@@ -155,8 +185,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98DDDBA12046717F0042056A /* AlbumsViewController.swift in Sources */,
+				98DDDBA620468ABE0042056A /* AlbumsFlowLayout.swift in Sources */,
+				9892DA7C204690110032CEA7 /* AlbumsCollectionViewCell.swift in Sources */,
 				98DDDB8320452A3F0042056A /* AppDelegate.swift in Sources */,
 				98DDDB9C20455AF40042056A /* PickerCollectionViewCell.swift in Sources */,
+				9892DA7F204691A70032CEA7 /* Album.swift in Sources */,
 				98DDDB9520452BFB0042056A /* InstagramPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,10 +329,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LBKLZA456E;
-				INFOPLIST_FILE = InstaImagePicker/Info.plist;
+				DEVELOPMENT_TEAM = LUER35A27W;
+				INFOPLIST_FILE = "$(SRCROOT)/Controller/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sutie.InstaImagePicker;
+				PRODUCT_BUNDLE_IDENTIFIER = shuduck.InstaImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -310,10 +344,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LBKLZA456E;
-				INFOPLIST_FILE = InstaImagePicker/Info.plist;
+				DEVELOPMENT_TEAM = LUER35A27W;
+				INFOPLIST_FILE = "$(SRCROOT)/Controller/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sutie.InstaImagePicker;
+				PRODUCT_BUNDLE_IDENTIFIER = shuduck.InstaImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

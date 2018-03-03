@@ -12,6 +12,8 @@ import PhotosUI
 
 class InstagramPickerViewController: UIViewController {
 
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bigImageView: UIImageView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
@@ -23,11 +25,55 @@ class InstagramPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let lightGrayView = UIView(frame: CGRect(x: 0, y: 0, width: bigImageView.bounds.width, height: bigImageView.bounds.height))
+        lightGrayView.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
+        containerView.addSubview(lightGrayView)
 
+        scrollView.contentSize = bigImageView.bounds.size
+        
+        scrollView.minimumZoomScale = 0.4
+        scrollView.maximumZoomScale = 4.0
+        
+        scrollView.frame = CGRect(x: 0, y: 0, width: bigImageView.bounds.size.width, height: bigImageView.bounds.height)
+        print("bigImageView.bounds.size.width : \(bigImageView.bounds.size.width)")
+        print("bigImageView.bounds.size.width : \(bigImageView.bounds.size.width)")
+        
+//        scrollView.alwaysBounceVertical = false
+//        scrollView.alwaysBounceHorizontal = false
+//        scrollView.showsVerticalScrollIndicator = true
+//        scrollView.flashScrollIndicators()
+
+        bigImageView.contentMode = .scaleAspectFit
+        scrollView.addSubview(bigImageView)
+        containerView.addSubview(scrollView)
+        
         fetchAllPhotos()
         setBigImage(imageAsset: firstAsset)
-        
     }
+    
+    // When zoom the image, it would be centered. Just need to update the offset of the image in scrollViewDidZoom()
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        let subView = scrollView.subviews[0]    // get the image View
+        let offsetX = max((scrollView.bounds.size.width - scrollView.contentSize.width) * 0.5, 0.0)
+        let offsetY = max((scrollView.bounds.size.height - scrollView.contentSize.height) * 0.5, 0.0)
+        
+        print("offsetX: \(offsetX), offsetY: \(offsetY)")
+        
+        // adjust the center of the imageView
+        subView.center = CGPoint(x: scrollView.contentSize.width * 0.5 + offsetX,
+                                  y: scrollView.contentSize.height * 0.5 + offsetY)
+        
+        
+        scrollView.addSubview(subView)
+    }
+    
+    // scrollView delegate
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return bigImageView
+    }
+    
+    
 
     func fetchAllPhotos() {
         let allPhotosOptions = PHFetchOptions()
@@ -63,7 +109,7 @@ class InstagramPickerViewController: UIViewController {
             let position = touch.location(in: view)
             let pointX = position.x
             let pointY = position.y
-            print("\n-----Touches Moved: x = \(pointX), y = \(pointY) -----")
+//            print("\n-----Touches Moved: x = \(pointX), y = \(pointY) -----")
         }
     }
 }
@@ -104,7 +150,8 @@ extension InstagramPickerViewController: UICollectionViewDelegate {
 extension InstagramPickerViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        print("screenWidth : \(screenWidth) ---- 4로 나누면? : \(screenWidth/4.0)")
+     // print("screenWidth : \(screenWidth) ---- 2로 나누면? : \(screenWidth/2.0)")
+      //  print("** screenHeight : \(UIScreen.main.bounds.height)")
         return CGSize(width: screenWidth/4.0, height: screenWidth/4.0)
     }
 }
