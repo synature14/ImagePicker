@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PickerCollectionViewCell: UICollectionViewCell {
+class STPickerCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var smallImageView: UIImageView!
     

@@ -13,7 +13,7 @@
         <!--Instagram Picker View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="InstagramPickerViewController" customModule="InstaImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="STInstagramPickerViewController" customModule="InstaImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,13 +21,19 @@
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="oAg-ni-m7e">
                                 <rect key="frame" x="0.0" y="20" width="375" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SyJ-ed-SV3">
-                                        <rect key="frame" x="333" y="5" width="32" height="30"/>
-                                        <state key="normal" title="Next"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SyJ-ed-SV3" userLabel="Done">
+                                        <rect key="frame" x="328" y="5" width="37" height="30"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Thm-EX-vQc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPu-bW-ZvQ">
                                         <rect key="frame" x="15" y="5" width="48" height="30"/>
                                         <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LC1-1e-GAm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBE-gg-GEl">
                                         <rect key="frame" x="156" y="4" width="63" height="33"/>
@@ -80,7 +86,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PickerCollectionViewCell" id="me1-gg-Q2J" customClass="PickerCollectionViewCell" customModule="InstaImagePicker" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PickerCollectionViewCell" id="me1-gg-Q2J" customClass="STPickerCollectionViewCell" customModule="InstaImagePicker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="90" height="83"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -168,7 +174,7 @@
         <!--Albums View Controller-->
         <scene sceneID="EO1-yZ-NIr">
             <objects>
-                <viewController id="5Gm-cx-9Ki" customClass="AlbumsViewController" customModule="InstaImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5Gm-cx-9Ki" customClass="STAlbumsViewController" customModule="InstaImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="09V-qX-2GT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -176,7 +182,7 @@
                         <inset key="scrollIndicatorInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                         <collectionViewLayout key="collectionViewLayout" id="m4T-Q4-Fd1" customClass="AlbumsFlowLayout" customModule="InstaImagePicker" customModuleProvider="target"/>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="albumCell" id="G7I-Pb-B9S" customClass="AlbumsCollectionViewCell" customModule="InstaImagePicker" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="albumCell" id="G7I-Pb-B9S" customClass="STAlbumsCollectionViewCell" customModule="InstaImagePicker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="144" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">

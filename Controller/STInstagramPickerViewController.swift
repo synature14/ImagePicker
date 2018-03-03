@@ -10,12 +10,32 @@ import UIKit
 import Photos
 import PhotosUI
 
-class InstagramPickerViewController: UIViewController {
+
+protocol ImagePickerDelegate: class {
+    func doneButtonTapped(_ imageView: UIImage ) -> UIImage
+    func cancelButtonTapped(_ imageView: UIImage)
+}
+
+
+
+class STInstagramPickerViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bigImageView: UIImageView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
+    
+    @IBAction func cancleButton(_ sender: Any) {
+        /*
+         cancelButtonTapped()
+         */
+    }
+    @IBAction func doneButton(_ sender: Any) {
+        /*
+         doneButtonTapped
+         */
+    }
+    
     
     var allPhotos: PHFetchResult<PHAsset>!
     let imageManager = PHCachingImageManager()
@@ -116,14 +136,14 @@ class InstagramPickerViewController: UIViewController {
 
 
 
-extension InstagramPickerViewController: UICollectionViewDataSource {
+extension STInstagramPickerViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("\n사진 개수: \(allPhotos.count)\n")
         return allPhotos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PickerCollectionViewCell", for: indexPath) as! PickerCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PickerCollectionViewCell", for: indexPath) as! STPickerCollectionViewCell
         let asset = allPhotos.object(at: indexPath.item)
         
         cell.representedAssetIdentifier = asset.localIdentifier
@@ -140,14 +160,14 @@ extension InstagramPickerViewController: UICollectionViewDataSource {
     
 }
 
-extension InstagramPickerViewController: UICollectionViewDelegate {
+extension STInstagramPickerViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedAsset = allPhotos.object(at: indexPath.item)
         setBigImage(imageAsset: selectedAsset)
     }
 }
 
-extension InstagramPickerViewController: UICollectionViewDelegateFlowLayout {
+extension STInstagramPickerViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
      // print("screenWidth : \(screenWidth) ---- 2로 나누면? : \(screenWidth/2.0)")
@@ -156,6 +176,16 @@ extension InstagramPickerViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: ImagePickerDelegate
+extension STInstagramPickerViewController: ImagePickerDelegate {
+    func doneButtonTapped(_ imageView: UIImage) -> UIImage {
+        
+    }
+    
+    func cancelButtonTapped(_ imageView: UIImage){
+        
+    }
+}
 
 
 

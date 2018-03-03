@@ -10,7 +10,7 @@ import UIKit
 import PhotosUI
 import Photos
 
-class AlbumsCollectionViewCell: UICollectionViewCell {
+class STAlbumsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageView: UIImageView!

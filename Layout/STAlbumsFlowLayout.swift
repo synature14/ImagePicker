@@ -8,9 +8,7 @@
 
 import UIKit
 
-
-
-class AlbumsFlowLayout: UICollectionViewLayout {
+class STAlbumsFlowLayout: UICollectionViewLayout {
 
     // 1. Layout Delegate
     // weak 키워드를 사용하지 않으면, 메모리 누수가 발생한다 

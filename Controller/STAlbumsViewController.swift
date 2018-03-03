@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import PhotosUI
 
-class AlbumsViewController: UICollectionViewController {
+class STAlbumsViewController: UICollectionViewController {
 
     var albums = Album.allAlbums()
     
@@ -67,12 +67,8 @@ class AlbumsViewController: UICollectionViewController {
     } // setupPhotos()
 }
 
-//extension AlbumsViewController: AlbumsFlowLayoutDelegate {
-//    // 1. Returns the exact height of photo
-//    func collectionView(
-//}
 
-extension AlbumsViewController {
+extension STAlbumsViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return albums.count
     }
@@ -86,12 +82,8 @@ extension AlbumsViewController {
     }
 }
 
-//extension AlbumsViewController: AlbumsFlowLayoutDelegate {
-//    func collectionView(_ collection: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-//        return 0
-//    }
-//
-//}
+
+
 
 
 

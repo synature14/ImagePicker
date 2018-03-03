@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import PhotosUI
 
-struct Album {
+struct STAlbum {
     var imageAsset: PHAsset?
     var title: String
     
