@@ -18,7 +18,7 @@ class STAlbumsCollectionViewCell: UICollectionViewCell {
     
     let imageManager = PHCachingImageManager()
     
-    var album: Album? {
+    var album: STAlbum? {
         didSet {
             if let album = album {
                 let imageSize: CGSize = imageView.bounds.size

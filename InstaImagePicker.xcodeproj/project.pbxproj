@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9892DA7C204690110032CEA7 /* STAlbumsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892DA7B204690110032CEA7 /* STAlbumsCollectionViewCell.swift */; };
 		9892DA7F204691A70032CEA7 /* STAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892DA7E204691A70032CEA7 /* STAlbum.swift */; };
-		98DDDB8320452A3F0042056A /* STAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DDDB8220452A3F0042056A /* STAppDelegate.swift */; };
+		98DDDB8320452A3F0042056A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DDDB8220452A3F0042056A /* AppDelegate.swift */; };
 		98DDDB8820452A3F0042056A /* STMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98DDDB8620452A3F0042056A /* STMain.storyboard */; };
 		98DDDB8A20452A3F0042056A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98DDDB8920452A3F0042056A /* Assets.xcassets */; };
 		98DDDB8D20452A3F0042056A /* STLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98DDDB8B20452A3F0042056A /* STLaunchScreen.storyboard */; };
@@ -18,13 +18,14 @@
 		98DDDBA12046717F0042056A /* STAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DDDBA02046717F0042056A /* STAlbumsViewController.swift */; };
 		98DDDBA320467F620042056A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98DDDBA220467F620042056A /* Info.plist */; };
 		98DDDBA620468ABE0042056A /* STAlbumsFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DDDBA520468ABE0042056A /* STAlbumsFlowLayout.swift */; };
+		98EB99DD204BC80C00204D33 /* SutieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB99DC204BC80C00204D33 /* SutieViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9892DA7B204690110032CEA7 /* STAlbumsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAlbumsCollectionViewCell.swift; sourceTree = "<group>"; };
 		9892DA7E204691A70032CEA7 /* STAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAlbum.swift; sourceTree = "<group>"; };
 		98DDDB7F20452A3F0042056A /* InstaImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		98DDDB8220452A3F0042056A /* STAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAppDelegate.swift; sourceTree = "<group>"; };
+		98DDDB8220452A3F0042056A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98DDDB8720452A3F0042056A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/STMain.storyboard; sourceTree = "<group>"; };
 		98DDDB8920452A3F0042056A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98DDDB8C20452A3F0042056A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/STLaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,6 +34,7 @@
 		98DDDBA02046717F0042056A /* STAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAlbumsViewController.swift; sourceTree = "<group>"; };
 		98DDDBA220467F620042056A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Controller/Info.plist; sourceTree = "<group>"; };
 		98DDDBA520468ABE0042056A /* STAlbumsFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAlbumsFlowLayout.swift; sourceTree = "<group>"; };
+		98EB99DC204BC80C00204D33 /* SutieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SutieViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +82,9 @@
 				98DDDBA02046717F0042056A /* STAlbumsViewController.swift */,
 				98DDDB9F204636A70042056A /* Storyboard */,
 				98DDDB9820455A650042056A /* Views */,
-				98DDDB8220452A3F0042056A /* STAppDelegate.swift */,
+				98DDDB8220452A3F0042056A /* AppDelegate.swift */,
 				98DDDB8920452A3F0042056A /* Assets.xcassets */,
+				98EB99DC204BC80C00204D33 /* SutieViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -188,8 +191,9 @@
 				98DDDBA12046717F0042056A /* STAlbumsViewController.swift in Sources */,
 				98DDDBA620468ABE0042056A /* STAlbumsFlowLayout.swift in Sources */,
 				9892DA7C204690110032CEA7 /* STAlbumsCollectionViewCell.swift in Sources */,
-				98DDDB8320452A3F0042056A /* STAppDelegate.swift in Sources */,
+				98DDDB8320452A3F0042056A /* AppDelegate.swift in Sources */,
 				98DDDB9C20455AF40042056A /* STPickerCollectionViewCell.swift in Sources */,
+				98EB99DD204BC80C00204D33 /* SutieViewController.swift in Sources */,
 				9892DA7F204691A70032CEA7 /* STAlbum.swift in Sources */,
 				98DDDB9520452BFB0042056A /* STInstagramPickerViewController.swift in Sources */,
 			);

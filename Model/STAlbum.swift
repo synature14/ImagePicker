@@ -19,8 +19,8 @@ struct STAlbum {
         self.title = title
     }
     
-    static func allAlbums() -> [Album] {
-        let albums = [Album]()
+    static func allAlbums() -> [STAlbum] {
+        let albums = [STAlbum]()
         
         return albums
     }

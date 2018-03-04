@@ -12,8 +12,8 @@ import PhotosUI
 
 
 protocol ImagePickerDelegate: class {
-    func doneButtonTapped(_ imageView: UIImage ) -> UIImage
-    func cancelButtonTapped(_ imageView: UIImage)
+    func imagePickerDidCancel(_ imagePicker: STInstagramPickerViewController)
+    func imagePickerDidDone(_ imagePicker: STInstagramPickerViewController, image: UIImage?)
 }
 
 
@@ -25,15 +25,14 @@ class STInstagramPickerViewController: UIViewController {
     @IBOutlet weak var bigImageView: UIImageView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
+    weak var delegate: ImagePickerDelegate?
+    
     @IBAction func cancleButton(_ sender: Any) {
-        /*
-         cancelButtonTapped()
-         */
+        delegate?.imagePickerDidCancel(self)
     }
+    
     @IBAction func doneButton(_ sender: Any) {
-        /*
-         doneButtonTapped
-         */
+        delegate?.imagePickerDidDone(self, image: bigImageView.image)
     }
     
     
@@ -176,16 +175,6 @@ extension STInstagramPickerViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: ImagePickerDelegate
-extension STInstagramPickerViewController: ImagePickerDelegate {
-    func doneButtonTapped(_ imageView: UIImage) -> UIImage {
-        
-    }
-    
-    func cancelButtonTapped(_ imageView: UIImage){
-        
-    }
-}
 
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4ZB-bK-22e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,55 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="SOa-bV-U7S">
+            <objects>
+                <viewController id="4ZB-bK-22e" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6SQ-LL-t02">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAz-Jo-czX">
+                                <rect key="frame" x="145" y="318.5" width="85" height="30"/>
+                                <state key="normal" title="ImagePicker"/>
+                                <connections>
+                                    <segue destination="X9w-6e-xUt" kind="presentation" id="0sG-ze-8nO"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yxd-HT-i9N">
+                                <rect key="frame" x="0.0" y="467" width="375" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="feL-La-Sug"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CAz-Jo-czX" firstAttribute="centerY" secondItem="6SQ-LL-t02" secondAttribute="centerY" id="Div-xy-7tz"/>
+                            <constraint firstItem="i3Q-Bv-afa" firstAttribute="trailing" secondItem="Yxd-HT-i9N" secondAttribute="trailing" id="KbE-L6-rrx"/>
+                            <constraint firstItem="CAz-Jo-czX" firstAttribute="centerX" secondItem="6SQ-LL-t02" secondAttribute="centerX" id="KuK-am-qmp"/>
+                            <constraint firstItem="i3Q-Bv-afa" firstAttribute="bottom" secondItem="Yxd-HT-i9N" secondAttribute="bottom" id="WZQ-T3-7yZ"/>
+                            <constraint firstItem="Yxd-HT-i9N" firstAttribute="leading" secondItem="i3Q-Bv-afa" secondAttribute="leading" id="s88-xg-SZ5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="i3Q-Bv-afa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xnJ-QU-pJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1322" y="25"/>
+        </scene>
+        <!--imagePicker-->
+        <scene sceneID="E2Y-5u-gh6">
+            <objects>
+                <viewControllerPlaceholder referencedIdentifier="imagePicker" id="X9w-6e-xUt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MmQ-sb-CY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-751" y="-95"/>
+        </scene>
         <!--Instagram Picker View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="STInstagramPickerViewController" customModule="InstaImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="imagePicker" id="BYZ-38-t0r" customClass="STInstagramPickerViewController" customModule="InstaImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

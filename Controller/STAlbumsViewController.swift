@@ -12,7 +12,7 @@ import PhotosUI
 
 class STAlbumsViewController: UICollectionViewController {
 
-    var albums = Album.allAlbums()
+    var albums = STAlbum.allAlbums()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class STAlbumsViewController: UICollectionViewController {
         collectionView?.contentInset = UIEdgeInsets(top: 30, left: 6, bottom: 5, right: 6)
         
         // Set the PinterestLayout delegate
-        if let layout = collectionView?.collectionViewLayout as? AlbumsFlowLayout {
+        if let layout = collectionView?.collectionViewLayout as? STAlbumsFlowLayout {
             layout.cellSpacing = 10
         }
 
@@ -53,13 +53,13 @@ class STAlbumsViewController: UICollectionViewController {
             let numberOfAssets = assetsFetchResult.count
             print("numberOfAssets ==== \(numberOfAssets)  개")
             
-            var sample: Album
+            var sample: STAlbum
             
             if let firstObject = assetsFetchResult.firstObject {
-                sample = Album(imageAsset: firstObject, title: assetCollection.localizedTitle!)
+                sample = STAlbum(imageAsset: firstObject, title: assetCollection.localizedTitle!)
             }
             else {
-                sample = Album(imageAsset: nil, title: assetCollection.localizedTitle!)
+                sample = STAlbum(imageAsset: nil, title: assetCollection.localizedTitle!)
             }
             
             self.albums.append(sample)
@@ -74,7 +74,7 @@ extension STAlbumsViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumCell", for: indexPath) as! AlbumsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumCell", for: indexPath) as! STAlbumsCollectionViewCell
         cell.album = self.albums[indexPath.item]
         print("indexPath item --->> \(indexPath.item)")
         
