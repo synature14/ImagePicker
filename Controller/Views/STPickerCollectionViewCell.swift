@@ -27,4 +27,8 @@ class STPickerCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         updateWithImage(image: nil)
     }
+    
+    func lengthenCellHeight() {
+        
+    }
 }

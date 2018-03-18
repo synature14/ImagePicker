@@ -78,13 +78,13 @@
 		98DDDB8120452A3F0042056A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				98EB99DC204BC80C00204D33 /* SutieViewController.swift */,
 				98DDDB9420452BFB0042056A /* STInstagramPickerViewController.swift */,
 				98DDDBA02046717F0042056A /* STAlbumsViewController.swift */,
 				98DDDB9F204636A70042056A /* Storyboard */,
 				98DDDB9820455A650042056A /* Views */,
 				98DDDB8220452A3F0042056A /* AppDelegate.swift */,
 				98DDDB8920452A3F0042056A /* Assets.xcassets */,
-				98EB99DC204BC80C00204D33 /* SutieViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

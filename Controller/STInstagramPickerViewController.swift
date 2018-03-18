@@ -24,15 +24,31 @@ class STInstagramPickerViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bigImageView: UIImageView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
-    
+
     weak var delegate: ImagePickerDelegate?
+    
     
     @IBAction func cancleButton(_ sender: Any) {
         delegate?.imagePickerDidCancel(self)
     }
     
     @IBAction func doneButton(_ sender: Any) {
-        delegate?.imagePickerDidDone(self, image: bigImageView.image)
+        let originContentXOffset = scrollView.contentOffset.x / scrollView.zoomScale
+        let originContentYOffset = scrollView.contentOffset.y / scrollView.zoomScale
+        
+        let selectedRect = CGRect(x: originContentXOffset,
+                                  y: originContentYOffset,
+                                  width: bigImageView.bounds.size.width,
+                                  height: bigImageView.bounds.size.height)
+        
+        if let cutImage = bigImageView.image?.cgImage?.cropping(to: selectedRect) {
+            let image = UIImage(cgImage: cutImage)
+            delegate?.imagePickerDidDone(self, image: image)
+        } else {
+            delegate?.imagePickerDidDone(self, image: nil)      // 이미지 처리 실패
+        }
+        
+        
     }
     
     
@@ -45,27 +61,30 @@ class STInstagramPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let lightGrayView = UIView(frame: CGRect(x: 0, y: 0, width: bigImageView.bounds.width, height: bigImageView.bounds.height))
-        lightGrayView.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
-        containerView.addSubview(lightGrayView)
-
+//        let constraint = NSLayoutConstraint(item: containerView,
+//                                            attribute: NSLayoutAttribute.top,
+//                                            relatedBy: NSLayoutRelation.equal, toItem: self.view,
+//                                            attribute: NSLayoutAttribute.top,
+//                                            multiplier: 1,
+//                                            constant: 0.0).isActive = true
+        
+        
+        scrollView.layer.borderWidth = 18
+        scrollView.layer.borderColor? = UIColor.black.withAlphaComponent(0.3).cgColor
+        
         scrollView.contentSize = bigImageView.bounds.size
         
-        scrollView.minimumZoomScale = 0.4
+        scrollView.minimumZoomScale = 1.3
         scrollView.maximumZoomScale = 4.0
         
+        scrollView.zoomScale = 2.0
+        scrollView.contentMode = .scaleAspectFill
         scrollView.frame = CGRect(x: 0, y: 0, width: bigImageView.bounds.size.width, height: bigImageView.bounds.height)
         print("bigImageView.bounds.size.width : \(bigImageView.bounds.size.width)")
-        print("bigImageView.bounds.size.width : \(bigImageView.bounds.size.width)")
+        print("bigImageView.bounds.size.height : \(bigImageView.bounds.size.height)")
         
-//        scrollView.alwaysBounceVertical = false
-//        scrollView.alwaysBounceHorizontal = false
-//        scrollView.showsVerticalScrollIndicator = true
-//        scrollView.flashScrollIndicators()
-
-        bigImageView.contentMode = .scaleAspectFit
-        scrollView.addSubview(bigImageView)
-        containerView.addSubview(scrollView)
+        scrollView.alwaysBounceVertical = false
+        scrollView.alwaysBounceHorizontal = false
         
         fetchAllPhotos()
         setBigImage(imageAsset: firstAsset)
@@ -109,6 +128,7 @@ class STInstagramPickerViewController: UIViewController {
                                   contentMode: .aspectFit, options: nil,
                                   resultHandler: { image, _ in
                                     self.bigImageView.image = image
+                                    self.bigImageView.contentMode = .scaleAspectFill
         })
     }
     
@@ -128,8 +148,26 @@ class STInstagramPickerViewController: UIViewController {
             let position = touch.location(in: view)
             let pointX = position.x
             let pointY = position.y
-//            print("\n-----Touches Moved: x = \(pointX), y = \(pointY) -----")
+            print("\n--Touches Moved: imageCollectionView.frame.minY = \(imageCollectionView.frame.minY), y = \(pointY) ---")
+            
+            // if the user touch the collectionView and move it up to bigImageView,
+            if pointY < imageCollectionView.frame.minY{
+                containerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: -50).isActive = true
+                
+//                let contraint = NSLayoutConstraint(item: bigImageView, attribute: NSLayoutAttribute.top,
+//                                                           relatedBy: NSLayoutRelation.equal,
+//                                                           toItem: containerView,
+//                                                           attribute: NSLayoutAttribute.bottom,
+//                                                           multiplier: 1,
+//                                                           constant: -45.0).isActive = true
+            }
         }
+    }
+}
+
+
+extension STInstagramPickerViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
     }
 }
 
