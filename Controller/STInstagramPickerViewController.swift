@@ -28,27 +28,59 @@ class STInstagramPickerViewController: UIViewController {
     weak var delegate: ImagePickerDelegate?
     
     
+    @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
+    
+    
     @IBAction func cancleButton(_ sender: Any) {
         delegate?.imagePickerDidCancel(self)
     }
     
-    @IBAction func doneButton(_ sender: Any) {
-        let originContentXOffset = scrollView.contentOffset.x / scrollView.zoomScale
-        let originContentYOffset = scrollView.contentOffset.y / scrollView.zoomScale
+    
+    private func setImageToPreview(_ image: UIImage) {
+        let widthScale = scrollView.frame.size.width / image.size.width
+        let heightScale = scrollView.frame.size.height / image.size.height
+        let minScale = min(widthScale, heightScale)
+        let maxScale = max(widthScale, heightScale)
         
-        let selectedRect = CGRect(x: originContentXOffset,
-                                  y: originContentYOffset,
-                                  width: bigImageView.bounds.size.width,
-                                  height: bigImageView.bounds.size.height)
+        print("minScale: \(minScale) maxScale: \(maxScale), imageSize: \(image.size)")
         
-        if let cutImage = bigImageView.image?.cgImage?.cropping(to: selectedRect) {
-            let image = UIImage(cgImage: cutImage)
-            delegate?.imagePickerDidDone(self, image: image)
-        } else {
-            delegate?.imagePickerDidDone(self, image: nil)      // 이미지 처리 실패
+        imageViewWidthConstraint.constant = image.size.width
+        imageViewHeightConstraint.constant = image.size.height
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.scrollView.minimumZoomScale = minScale
+            self?.scrollView.setZoomScale(maxScale, animated: true)
+            self?.bigImageView.image = image
         }
+    }
+    
+    
+    @IBAction func doneButton(_ sender: Any) {
+        print("scrollView.zoomScale : \(scrollView.zoomScale)")
+    
+        let croppedImage = cropZoomedImage()
+        delegate?.imagePickerDidDone(self, image: croppedImage)
+    }
+    
+    
+    private func cropZoomedImage() -> UIImage? {
+        let reverseScale = 1 / scrollView.zoomScale
         
+        let xOffset = scrollView.contentOffset.x * reverseScale
+        let yOffset = scrollView.contentOffset.y * reverseScale
         
+        let adjustedWidth = scrollView.bounds.width * reverseScale
+        let adjustedHeight = scrollView.bounds.height * reverseScale
+        
+        let origin = CGPoint(x: xOffset, y: yOffset)
+        let size = CGSize(width: adjustedWidth, height: adjustedHeight)
+        
+        if let cgZoomedImage = bigImageView.image?.cgImage?.cropping(to: CGRect(origin: origin, size: size)) {
+            return UIImage(cgImage: cgZoomedImage)
+        } else {
+            return nil
+        }
     }
     
     
@@ -74,12 +106,12 @@ class STInstagramPickerViewController: UIViewController {
         
         scrollView.contentSize = bigImageView.bounds.size
         
-        scrollView.minimumZoomScale = 1.3
+        scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 4.0
         
-        scrollView.zoomScale = 2.0
+        scrollView.zoomScale = 1.0
         scrollView.contentMode = .scaleAspectFill
-        scrollView.frame = CGRect(x: 0, y: 0, width: bigImageView.bounds.size.width, height: bigImageView.bounds.height)
+        scrollView.frame = CGRect(x: 0, y: 0, width: bigImageView.bounds.size.width, height: bigImageView.bounds.size.height)
         print("bigImageView.bounds.size.width : \(bigImageView.bounds.size.width)")
         print("bigImageView.bounds.size.height : \(bigImageView.bounds.size.height)")
         
@@ -95,8 +127,6 @@ class STInstagramPickerViewController: UIViewController {
         let subView = scrollView.subviews[0]    // get the image View
         let offsetX = max((scrollView.bounds.size.width - scrollView.contentSize.width) * 0.5, 0.0)
         let offsetY = max((scrollView.bounds.size.height - scrollView.contentSize.height) * 0.5, 0.0)
-        
-        print("offsetX: \(offsetX), offsetY: \(offsetY)")
         
         // adjust the center of the imageView
         subView.center = CGPoint(x: scrollView.contentSize.width * 0.5 + offsetX,
@@ -168,6 +198,8 @@ class STInstagramPickerViewController: UIViewController {
 
 extension STInstagramPickerViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("*** scrollView.contentSize.width ----> \(scrollView.contentSize.width)")
+        print("*** scrollView.contentSize.HEIGHT ---> \(scrollView.contentSize.height)\n")
     }
 }
 

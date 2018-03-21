@@ -19,26 +19,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAz-Jo-czX">
-                                <rect key="frame" x="145" y="318.5" width="85" height="30"/>
-                                <state key="normal" title="ImagePicker"/>
+                                <rect key="frame" x="138" y="214" width="99" height="33"/>
+                                <color key="backgroundColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Image Picker">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="imagePickerButtonTapped:" destination="4ZB-bK-22e" eventType="touchUpInside" id="IOl-up-RyQ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yxd-HT-i9N">
-                                <rect key="frame" x="0.0" y="467" width="375" height="200"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yxd-HT-i9N">
+                                <rect key="frame" x="0.0" y="347" width="375" height="320"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="feL-La-Sug"/>
+                                    <constraint firstAttribute="height" constant="320" id="feL-La-Sug"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="CAz-Jo-czX" firstAttribute="centerY" secondItem="6SQ-LL-t02" secondAttribute="centerY" id="Div-xy-7tz"/>
-                            <constraint firstItem="i3Q-Bv-afa" firstAttribute="trailing" secondItem="Yxd-HT-i9N" secondAttribute="trailing" id="KbE-L6-rrx"/>
+                            <constraint firstItem="Yxd-HT-i9N" firstAttribute="top" secondItem="CAz-Jo-czX" secondAttribute="bottom" constant="100" id="0zY-RA-yAu"/>
                             <constraint firstItem="CAz-Jo-czX" firstAttribute="centerX" secondItem="6SQ-LL-t02" secondAttribute="centerX" id="KuK-am-qmp"/>
+                            <constraint firstItem="Yxd-HT-i9N" firstAttribute="leading" secondItem="i3Q-Bv-afa" secondAttribute="leading" id="OtF-XP-rCg"/>
                             <constraint firstItem="i3Q-Bv-afa" firstAttribute="bottom" secondItem="Yxd-HT-i9N" secondAttribute="bottom" id="WZQ-T3-7yZ"/>
-                            <constraint firstItem="Yxd-HT-i9N" firstAttribute="leading" secondItem="i3Q-Bv-afa" secondAttribute="leading" id="s88-xg-SZ5"/>
+                            <constraint firstItem="i3Q-Bv-afa" firstAttribute="trailing" secondItem="Yxd-HT-i9N" secondAttribute="trailing" id="d8t-JO-R30"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i3Q-Bv-afa"/>
                     </view>
@@ -48,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnJ-QU-pJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1322" y="25"/>
+            <point key="canvasLocation" x="-1322.4000000000001" y="24.7376311844078"/>
         </scene>
         <!--Instagram Picker View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -146,8 +150,8 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BpI-Zy-Wzm">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="375" id="I1o-OG-pbF"/>
-                                                    <constraint firstAttribute="width" constant="375" id="k6o-GX-bDd"/>
+                                                    <constraint firstAttribute="width" constant="375" id="bCe-Lc-9e6"/>
+                                                    <constraint firstAttribute="height" constant="375" id="xtl-gw-q7e"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -212,6 +216,8 @@
                         <outlet property="bigImageView" destination="BpI-Zy-Wzm" id="bVE-lG-jFO"/>
                         <outlet property="containerView" destination="2nv-tG-Ve2" id="gpJ-59-yvh"/>
                         <outlet property="imageCollectionView" destination="XlL-FN-BKN" id="Td7-cQ-eeY"/>
+                        <outlet property="imageViewHeightConstraint" destination="xtl-gw-q7e" id="QnC-JN-heH"/>
+                        <outlet property="imageViewWidthConstraint" destination="bCe-Lc-9e6" id="yln-EF-d2Y"/>
                         <outlet property="scrollView" destination="hPN-LX-Ge7" id="l9W-Ud-7in"/>
                     </connections>
                 </viewController>
