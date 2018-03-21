@@ -154,11 +154,15 @@ class STInstagramPickerViewController: UIViewController {
     }
     
     func setBigImage(imageAsset: PHAsset) {
-        imageManager.requestImage(for: imageAsset, targetSize: bigImageView.bounds.size,
-                                  contentMode: .aspectFit, options: nil,
+        let options = PHImageRequestOptions()
+        options.deliveryMode = .highQualityFormat
+        options.resizeMode = .exact
+        
+        imageManager.requestImage(for: imageAsset, targetSize: scrollView.bounds.size,
+                                  contentMode: .aspectFill, options: options,
                                   resultHandler: { image, _ in
+                                    guard let image = image else { return }
                                     self.bigImageView.image = image
-                                    self.bigImageView.contentMode = .scaleAspectFill
         })
     }
     
