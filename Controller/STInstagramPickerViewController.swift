@@ -112,9 +112,7 @@ class STInstagramPickerViewController: UIViewController {
         scrollView.zoomScale = 1.0
         scrollView.contentMode = .scaleAspectFill
         scrollView.frame = CGRect(x: 0, y: 0, width: bigImageView.bounds.size.width, height: bigImageView.bounds.size.height)
-        print("bigImageView.bounds.size.width : \(bigImageView.bounds.size.width)")
-        print("bigImageView.bounds.size.height : \(bigImageView.bounds.size.height)")
-        
+       
         scrollView.alwaysBounceVertical = false
         scrollView.alwaysBounceHorizontal = false
         
@@ -173,7 +171,6 @@ class STInstagramPickerViewController: UIViewController {
             let position = touch.location(in: view)
             let pointX = position.x
             let pointY = position.y
-            print("---Touch Began: x = \(pointX), y = \(pointY) ----")
         }
     }
     
@@ -182,10 +179,9 @@ class STInstagramPickerViewController: UIViewController {
             let position = touch.location(in: view)
             let pointX = position.x
             let pointY = position.y
-            print("\n--Touches Moved: imageCollectionView.frame.minY = \(imageCollectionView.frame.minY), y = \(pointY) ---")
-            
+
             // if the user touch the collectionView and move it up to bigImageView,
-            if pointY < imageCollectionView.frame.minY{
+            if pointY < imageCollectionView.frame.minY {
                 containerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: -50).isActive = true
                 
 //                let contraint = NSLayoutConstraint(item: bigImageView, attribute: NSLayoutAttribute.top,
@@ -211,7 +207,6 @@ extension STInstagramPickerViewController: UIScrollViewDelegate {
 
 extension STInstagramPickerViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("\n사진 개수: \(allPhotos.count)\n")
         return allPhotos.count
     }
     

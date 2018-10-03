@@ -16,7 +16,6 @@
 		98DDDB9520452BFB0042056A /* STInstagramPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DDDB9420452BFB0042056A /* STInstagramPickerViewController.swift */; };
 		98DDDB9C20455AF40042056A /* STPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DDDB9B20455AF40042056A /* STPickerCollectionViewCell.swift */; };
 		98DDDBA12046717F0042056A /* STAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DDDBA02046717F0042056A /* STAlbumsViewController.swift */; };
-		98DDDBA320467F620042056A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98DDDBA220467F620042056A /* Info.plist */; };
 		98DDDBA620468ABE0042056A /* STAlbumsFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DDDBA520468ABE0042056A /* STAlbumsFlowLayout.swift */; };
 		98EB99DD204BC80C00204D33 /* SutieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB99DC204BC80C00204D33 /* SutieViewController.swift */; };
 /* End PBXBuildFile section */
@@ -174,7 +173,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98DDDBA320467F620042056A /* Info.plist in Resources */,
 				98DDDB8D20452A3F0042056A /* STLaunchScreen.storyboard in Resources */,
 				98DDDB8A20452A3F0042056A /* Assets.xcassets in Resources */,
 				98DDDB8820452A3F0042056A /* STMain.storyboard in Resources */,
